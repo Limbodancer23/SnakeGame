@@ -3,7 +3,9 @@
 #include "PlayerPawnBase.h"
 #include "Camera/CameraComponent.h"
 #include "SnakeBase.h"
+#include "Food.h"
 #include "Components/InputComponent.h"
+#include "Math/UnrealMathUtility.h"
 
 // Sets default values
 APlayerPawnBase::APlayerPawnBase()
@@ -21,12 +23,18 @@ void APlayerPawnBase::BeginPlay()
 	Super::BeginPlay();
 	SetActorRotation(FRotator(-90, 0, 0));
 	CreateSnakeActor();
+	SpawnFood();
+
 }
 
 // Called every frame
 void APlayerPawnBase::Tick(float DeltaTime)
 {
 	Super::Tick(DeltaTime);
+	if (!IsValid(FoodActor))
+	{
+		SpawnFood();
+	}
 
 }
 
@@ -67,6 +75,14 @@ void APlayerPawnBase::HandlePlayerHorizontalImput(float value)
 			SnakeActor->LastMoveDirection = EMovementDirection::LEFT;
 		}
 	}
+}
+
+void APlayerPawnBase::SpawnFood()
+{
+	FVector NewLocaction = FVector(FMath::RandRange(-950, 0), FMath::RandRange(-950, 0), 30);
+	FTransform NewTransform(NewLocaction);
+	FoodActor = GetWorld()->SpawnActor<AFood>(FoodActorClass, NewTransform);
+	
 }
 
  

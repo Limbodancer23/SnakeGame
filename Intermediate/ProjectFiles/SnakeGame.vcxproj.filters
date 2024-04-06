@@ -33,6 +33,18 @@
     <Filter Include="Source\SnakeGame">
       <UniqueIdentifier>{556ADF33-95A1-3DCC-AC26-8E401112CF35}</UniqueIdentifier>
     </Filter>
+    <ClCompile Include="..\..\Source\SnakeGame\Food.cpp">
+      <Filter>Source\SnakeGame</Filter>
+    </ClCompile>
+    <ClInclude Include="..\..\Source\SnakeGame\Food.h">
+      <Filter>Source\SnakeGame</Filter>
+    </ClInclude>
+    <ClCompile Include="..\..\Source\SnakeGame\Interactable.cpp">
+      <Filter>Source\SnakeGame</Filter>
+    </ClCompile>
+    <ClInclude Include="..\..\Source\SnakeGame\Interactable.h">
+      <Filter>Source\SnakeGame</Filter>
+    </ClInclude>
     <ClCompile Include="..\..\Source\SnakeGame\PlayerPawnBase.cpp">
       <Filter>Source\SnakeGame</Filter>
     </ClCompile>

@@ -6,6 +6,7 @@
 
 class UCameraComponent;
 class ASnakeBase;
+class AFood;
 
 UCLASS()
 class SNAKEGAME_API APlayerPawnBase : public APawn
@@ -24,6 +25,12 @@ public:
 
 	UPROPERTY(EditDefaultsOnly)
 	TSubclassOf<ASnakeBase> SnakeActorClass;
+
+	UPROPERTY(BluePrintReadWrite)
+	AFood* FoodActor;
+
+	UPROPERTY(EditDefaultsOnly)
+	TSubclassOf<AFood> FoodActorClass;
 protected:
 	// Called when the game starts or when spawned
 	virtual void BeginPlay() override;
@@ -43,4 +50,6 @@ public:
 	UFUNCTION()
 	void HandlePlayerHorizontalImput(float value);
 
+	UFUNCTION()
+	void SpawnFood();
 };
